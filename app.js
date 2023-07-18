@@ -1,11 +1,7 @@
 //create http server
 const http = require('http')
+//importing requestHandler
+const requestHandler = require('./router')
 
-const server =http.createServer((request,response) =>{
-    console.log(request.headers);//request
-    response.setHeader()//response
-    response.write
-    response.end
-
-})
+const server =http.createServer(requestHandler)
 server.listen(3000)
