@@ -14,10 +14,13 @@ const requestHandler =(request,response)=>{
        response.write('</html>')
        return response.end()
     }
-    if (url==='/message' && method =='post') {
+    if (url==='/message' && method =='POST') {
         fs.writeFileSync('hello.txt','dummy')
         response.setHeader('Location','/')
-        response.statusCode=302
+        //302 -->status code redirecting to the page
+        response.statusCode=302 //redirecting the form to receive original form(to set a statuscode)
+        //it redirect the page
+        console.log("THIS IS MESSAGE");
         return response.end()
     }
     response.setHeader('Content-type','text/html')//response
@@ -28,4 +31,13 @@ const requestHandler =(request,response)=>{
     response.end()
 
 }
-module.exports = requestHandler
+// module.exports = {handler:requestHandler,
+//                   sample:"sample statement" }
+
+//node js
+// exports.handler =requestHandler
+// exports.sample ='Sample statement'
+
+// js
+module.exports.handler =requestHandler
+module.exports.sample ='Sample statement'

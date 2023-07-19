@@ -1,7 +1,8 @@
 //create http server
 const http = require('http')
 //importing requestHandler
-const requestHandler = require('./router')
+const router = require('./router')
 
-const server =http.createServer(requestHandler)
+console.log(router.sample);
+const server =http.createServer(router.handler)
 server.listen(3000)
